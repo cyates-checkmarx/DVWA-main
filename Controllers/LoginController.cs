@@ -32,24 +32,51 @@ namespace purchasepal_core
             return plain;
         }
 
-        private static void Login(string username,string password)
+        //original snippet
+        // private static void Login(string username,string password)
+        // {
+        //     try
+        //     {
+        //         using (var conn = new SqlConnection("conn..."))
+        //         {
+        //             var sql = "SELECT * FROM Users WHERE username = '" + username + "' AND pwd = '" + password + "'";
+        //             using (var cmd = new SqlCommand(sql))
+        //             {
+        //                 cmd.Connection = conn;
+        //                 cmd.ExecuteScalar();
+        //             }
+
+        //         }
+        //     }
+        //     catch  
+        //     {
+
+        //         Console.WriteLine("An error has occurred !!");
+        //     }
+           
+        // }
+
+    //ai remediated snippet
+    private static void Login(string username, string password)
         {
             try
             {
                 using (var conn = new SqlConnection("conn..."))
                 {
-                    var sql = "SELECT * FROM Users WHERE username = '" + username + "' AND pwd = '" + password + "'";
+                    var sql = "SELECT * FROM Users WHERE username = @username AND pwd = @password";
+                    
                     using (var cmd = new SqlCommand(sql))
                     {
+                        cmd.Parameters.AddWithValue("@username", username);
+                        cmd.Parameters.AddWithValue("@password", password);
+                        
                         cmd.Connection = conn;
                         cmd.ExecuteScalar();
                     }
-
                 }
             }
             catch  
             {
-
                 Console.WriteLine("An error has occurred !!");
             }
            

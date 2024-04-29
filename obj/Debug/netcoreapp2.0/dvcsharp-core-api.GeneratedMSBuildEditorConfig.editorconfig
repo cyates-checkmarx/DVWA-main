@@ -1,0 +1,3 @@
+is_global = true
+build_property.RootNamespace = dvcsharp-core-api
+build_property.ProjectDir = /Users/carolyny/Documents/GitHub/DVWA-main/
