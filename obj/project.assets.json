@@ -14026,6 +14026,10 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreLockProperties": {
+        "restorePackagesWithLockFile": "true",
+        "nuGetLockFilePath": "tmpLuvdCE.tmp"
       }
     },
     "frameworks": {
